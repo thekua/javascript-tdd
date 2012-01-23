@@ -18,6 +18,9 @@
 <style>
         /* Your individual styles here, or just use inline styles if that’s
      what you want. */
+    p.smaller, ul.smaller {
+        font-size: 0.8em
+    }
 
 
 </style>
@@ -146,8 +149,54 @@ slides below. -->
 </article>
 
 
+<article>
+    <h3>Story A: The question is...</h3>
+    <p><strong>In order to</strong> test my knowledge and (eventually score points)
+        <br/><strong>As a</strong> Quizlet player
+        <br/><strong>I want</strong> a random question to be shown</p>
 
+    <p class="smaller"><strong>Notes: </strong>Calls an ajax service. Shows a loader whilst waiting. Loader is hidden on success. Input of answer not part of this story. Answers are always textual input and there is only ever one correct answer. Example of service:</p>
+    <pre class="smaller">Request: GET http://server:8080/nextQuestion
+Response: 200 OK
+{
+  "question" : "What is the capital of London?",
+  "answer" : "London"
+}</pre>
+</article>
 
+<article>
+    <h3>Story B: Full marks</h3>
+    <p><strong>In order to</strong> feel like a trivia guru
+        <br/><strong>As a</strong> Quizlet player
+        <br/><strong>I want</strong> some feedback when I enter the correct answer</p>
+
+    <p class="smaller"><strong>Notes: </strong>Story where input box is first added. A tick is shown when a user has entered the answer correctly. </p>
+</article>
+
+    <article>
+        <h3>Story C: Next question please</h3>
+        <p><strong>In order to</strong> further develop my trivia guruness
+            <br/><strong>As a</strong> Quizlet player
+            <br/><strong>I want</strong> the option to fetch another question</p>
+
+        <p class="smaller"><strong>Notes: </strong>Story where we add a button to get the next question.</p>
+    </article>
+
+    <article>
+        <h3>Story D: I give up!</h3>
+        <p><strong>In order to</strong> deepen my trivia knowledge
+            <br/><strong>As a</strong> Quizlet player
+            <br/><strong>I want</strong> an option to show me the real answer</p>
+
+        <p class="smaller"><strong>Notes: </strong>A new button should be added. On click of the button, it should reveal the answer, hide the answer input box and show the button to progress to the next question</p>
+    </article>
+<article class='nobackground'>
+        <h3>
+          The final result
+        </h3>
+
+        <iframe src='../src/demo/index.html'></iframe>
+      </article>
 <article>
     <h2>
         Questions?
