@@ -30,6 +30,26 @@ input[disabled], input[disabled]:hover {
     color:green;
 }
 
+.icon-ok {
+    background:url(../images/sprite-icons.png) no-repeat -140px -16px;
+    padding-right: 20px;
+    margin-right: 2px;
+    margin-left: 3px;
+}
+
+#give-up-section {
+    float:right;
+}
+
+#question-section, #question-section p, #question-section input {
+    display: inline;
+}
+
+
+.task {
+    list-style-type: circle;
+}
+
 .completed-task {
     text-decoration: line-through;
 }
