@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Learn Stuff</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+	<link rel="stylesheet" href="stylesheets/site.css">
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+
+	<div class="container">
+		<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 40px">Q&A?</h1>
+            <div class="navbar"><h5>A simple game</h5></div>
+			<hr />
+		</div>
+
+        <div>
+            <ul>
+                <li>Display the question and the answer section - get the Q&A from the answer</li>
+                <li>Show the tick if the answer is correct (disable button)</li>
+                <li>Evolve to include multiple-choice answer</li>
+                <li>Send the total back the server</li>
+            </ul>
+        </div>
+        <div class="sixteen columns">
+            <h3>Answer me the question...</h3>
+                <p>What is the capital of England?</p>
+            <h3>Your answer:</h3>
+            <div id="answer">
+
+            </div>
+
+            <div id="translate">
+                <input id="entry" class="user-input" type="text" style="display: inline;"/><span id="ok" class="user-input icon-ok"></span>
+                <input id="revealButton" class="user-input" type="button" value="I give up!"/>
+                <div id="answerSection" class="user-input" >Answers: <span id="answers">x</span></div>
+            </div>
+            <div id="repeat" style="display:none">
+                <h4>Now repeat the word (auf Deutsch): </h4>
+                <input id="repeat-entry" class="user-input" type="text" style="display: inline;"/><span id="repeat-ok" class="user-input icon-ok"></span>
+                <input id="nextButton" class="user-input" type="button" value="Next Word" style="display:none"/>
+            </div>
+            <div id="done" style="display: none;">
+                <span class="user-input" style="color:green">Sentence complete</span>
+                <input id="nextSentenceButton" class="user-input" type="button" value="Next sentence please"/>
+            </div>
+        </div>
+	</div>
+
+
+
+	<!-- JS
+	================================================== -->
+    <!--
+    TODO: Productionise this to link out to CDN
+    -->
+	<script src="javascripts/jquery-1.7.js"></script>
+	<script src="javascripts/tabs.js"></script>
+	<script src="src/javascripts/knockout-1.2.1.js"></script>
+    <script src="src/javascripts/com.thekua.language.matcher.js"></script>
+	<script src="src/javascripts/com.thekua.language.main.js"></script>
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
