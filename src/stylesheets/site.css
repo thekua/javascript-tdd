@@ -2,14 +2,8 @@
     display: inline;
 }
 
-
-
 .hint {
     padding-left: 5px;
-}
-
-.current-word {
-    font-size: 2em;
 }
 
 .todo li {
@@ -40,53 +34,9 @@ input[disabled], input[disabled]:hover {
     text-decoration: line-through;
 }
 
-
-.icon-ok {
-    background:url(../images/sprite-icons.png) no-repeat -140px -16px;
-    padding-right: 20px;
-    margin-right: 2px;
-    margin-left: 3px;
-    display: none;
-}
-
-.gender-icon-ok {
-    background:url(../images/sprite-icons.png) no-repeat -140px -16px;
-    padding-right: 20px;
-    margin-right: 10px;
-    margin-left: 3px;
-}
-
-.gender-icon-hide {
-    visibility: hidden;
-}
-
-.gender-icon-show {
-    visibility: visible;
-}
-
-.gender-section {
-    padding-bottom: 3pt;
-    display: none;
-}
-
-.hint-section {
-    float: right;
-}
-
 input[type="button"].hint-button {
     margin-bottom: 0;
 }
-
-input.gender-input {
-    width: 30pt;
-    display: inline;
-}
-
-.gender-noun-word {
-    display: inline;
-    padding-left: 5px;
-}
-
 #template {
     display: none;
 }
