@@ -83,7 +83,13 @@ slides below. -->
         <li>And an opportunity to move to the next question</li>
     </ol>
 </article>
+<article class='nobackground'>
+    <h3>
+        The working example
+    </h3>
 
+    <iframe src='../src/demo/index.html'></iframe>
+</article>
 <article>
     <h3>Why this example?</h3>
     <ul class="build">
@@ -92,25 +98,6 @@ slides below. -->
         <li>Demonstrates some common problems and patterns</li>
     </ul>
 </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <article>
     <h3>
@@ -141,14 +128,16 @@ slides below. -->
 
 <article>
     <h3>
-              Passive View
-            </h3>
-            <p>
-              <img src='images/PassiveView.png'>
-            </p>
-            <div class='source white'>
-              Reference: <a href="http://martinfowler.com/eaaDev/PassiveScreen.html" title="Passive View">http://martinfowler.com/eaaDev/PassiveScreen.html</a>
-            </div>
+        Passive View
+    </h3>
+
+    <p>
+        <img src='images/PassiveView.png'>
+    </p>
+
+    <div class='source white'>
+        Reference: <a href="http://martinfowler.com/eaaDev/PassiveScreen.html" title="Passive View">http://martinfowler.com/eaaDev/PassiveScreen.html</a>
+    </div>
 </article>
 <article class="smaller">
 
@@ -185,12 +174,13 @@ slides below. -->
 </pre>
     </section>
 </article>
-    <article>
-        <h3>Dealing with AJAX - Service boundary</h3>
-        <p>
-          <img class="centered" src='images/ajax-calls.png'>
-        </p>
-    </article>
+<article>
+    <h3>Dealing with AJAX - Service boundary</h3>
+
+    <p>
+        <img class="centered" src='images/ajax-calls.png'>
+    </p>
+</article>
 
 <article>
 
@@ -221,6 +211,7 @@ slides below. -->
 
 <article>
     <h3>Javascript Dependency Injection</h3>
+
     <p>Separates what you use from where you get it</p>
     <img class="centered" src="images/dependency-injection-150.png"/>
 </article>
@@ -248,11 +239,14 @@ module.buildPresenter = function(view, remoteService) {
 
 <article class="fill">
     <h3>Story A: The question is...</h3>
+
     <p><strong>In order to</strong> test my knowledge and (eventually score points)
         <br/><strong>As a</strong> Quizlet player
         <br/><strong>I want</strong> a random question to be shown</p>
 
-    <p class="smaller"><strong>Notes: </strong>Calls an ajax service. Shows a loader whilst waiting. Loader is hidden on success. Input of answer not part of this story. Answers are always textual input and there is only ever one correct answer. Example of service:</p>
+    <p class="smaller"><strong>Notes: </strong>Calls an ajax service. Shows a loader whilst waiting. Loader is hidden on
+        success. Input of answer not part of this story. Answers are always textual input and there is only ever one
+        correct answer. Example of service:</p>
     <pre class="smaller">Request: GET http://server:8080/nextQuestion
 Response: 200 OK
 {
@@ -264,56 +258,55 @@ Response: 200 OK
 
 <article class="fill">
     <h3>Story B: Full marks</h3>
+
     <p><strong>In order to</strong> feel like a trivia guru
         <br/><strong>As a</strong> Quizlet player
         <br/><strong>I want</strong> some feedback when I enter the correct answer</p>
 
-    <p class="smaller"><strong>Notes: </strong>Story where input box is first added. A tick is shown when a user has entered the answer correctly </p>
+    <p class="smaller"><strong>Notes: </strong>Story where input box is first added. A tick is shown when a user has
+        entered the answer correctly </p>
     <img src="images/indexcard.png"/>
 </article>
 
-    <article class="fill">
-        <h3>Story C: Next question please</h3>
-        <p><strong>In order to</strong> further develop my trivia guruness
-            <br/><strong>As a</strong> Quizlet player
-            <br/><strong>I want</strong> the option to fetch another question</p>
+<article class="fill">
+    <h3>Story C: Next question please</h3>
 
-        <p class="smaller"><strong>Notes: </strong>Story where we add a button to get the next question</p>
-        <img src="images/indexcard.png"/>
-    </article>
+    <p><strong>In order to</strong> further develop my trivia guruness
+        <br/><strong>As a</strong> Quizlet player
+        <br/><strong>I want</strong> the option to fetch another question</p>
 
-    <article class="fill">
-        <h3>Story D: I give up!</h3>
-        <p><strong>In order to</strong> deepen my trivia knowledge
-            <br/><strong>As a</strong> Quizlet player
-            <br/><strong>I want</strong> an option to show me the real answer</p>
+    <p class="smaller"><strong>Notes: </strong>Story where we add a button to get the next question</p>
+    <img src="images/indexcard.png"/>
+</article>
 
-        <p class="smaller"><strong>Notes: </strong>A new button should be added. On click of the button, it should reveal the answer, hide the answer input box and show the button to progress to the next question</p>
-        <img src="images/indexcard.png"/>
-    </article>
+<article class="fill">
+    <h3>Story D: I give up!</h3>
 
-    <article class="fill">
-        <h3>Story E: Easy answering!</h3>
-        <p><strong>In order to</strong> make entering answers easier
-            <br/><strong>As a</strong> Quizlet player
-            <br/><strong>I want</strong> white spaces and case to be ignored</p>
+    <p><strong>In order to</strong> deepen my trivia knowledge
+        <br/><strong>As a</strong> Quizlet player
+        <br/><strong>I want</strong> an option to show me the real answer</p>
 
-        <p class="smaller"><strong>Examples if the answer was 'London'. It should match</strong></p>
-        <ul class="smaller no-top-bottom-margin">
-            <li class="no-top-bottom-margin">' London '</li>
-            <li class="no-top-bottom-margin">'london'</li>
-            <li class="no-top-bottom-margin">' london '</li>
-        </ul>
-        <img src="images/indexcard.png"/>
-    </article>
+    <p class="smaller"><strong>Notes: </strong>A new button should be added. On click of the button, it should reveal
+        the answer, hide the answer input box and show the button to progress to the next question</p>
+    <img src="images/indexcard.png"/>
+</article>
 
-<article class='nobackground'>
-        <h3>
-          The final result
-        </h3>
+<article class="fill">
+    <h3>Story E: Easy answering!</h3>
 
-        <iframe src='../src/demo/index.html'></iframe>
-      </article>
+    <p><strong>In order to</strong> make entering answers easier
+        <br/><strong>As a</strong> Quizlet player
+        <br/><strong>I want</strong> white spaces and case to be ignored</p>
+
+    <p class="smaller"><strong>Examples if the answer was 'London'. It should match</strong></p>
+    <ul class="smaller no-top-bottom-margin">
+        <li class="no-top-bottom-margin">' London '</li>
+        <li class="no-top-bottom-margin">'london'</li>
+        <li class="no-top-bottom-margin">' london '</li>
+    </ul>
+    <img src="images/indexcard.png"/>
+</article>
+
 <article>
     <h2>
         Questions?
@@ -321,19 +314,28 @@ Response: 200 OK
 
 </article>
 
-    <article>
-        <p>This package built with:</p>
-        <ul>
-            <li><a href="http://pivotal.github.com/jasmine/" title="Jasmine BDD">Jasmine BDD</a>- <a href="../lib/jasmine-1.1.0/doc/index.html" title="Jasmine BDD Documentation">Documentation here</a></li>
-            <li>Slides built with <a href="code.google.com/p/html5slides" title="HTML 5 slides">HTML5Slides</a></li>
-            <li>Dynamic presentation brought to you by <a href="http://jquery.com/" title="JQuery">JQuery</a></li>
-        </ul>
-    </article>
+<article>
+    <p>This package built with:</p>
+    <ul>
+        <li><a href="http://pivotal.github.com/jasmine/" title="Jasmine BDD">Jasmine BDD</a>- <a
+                href="../lib/jasmine-1.1.0/doc/index.html" title="Jasmine BDD Documentation">Documentation here</a></li>
+        <li>Slides built with <a href="code.google.com/p/html5slides" title="HTML 5 slides">HTML5Slides</a></li>
+        <li>Dynamic presentation brought to you by <a href="http://jquery.com/" title="JQuery">JQuery</a></li>
+    </ul>
+</article>
 
-    <article>
-        <p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="images/creative-commons.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" title="thekua@work" href="http://www.thekua.com/atwork" property="cc:attributionName" rel="cc:attributionURL">Patrick Kua</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.twitter.com/patkua" rel="cc:morePermissions">@patkua</a>.
-        <h2>Licensing</h2>
-    </article>
+<article>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License"
+                                                                                style="border-width:0"
+                                                                                src="images/creative-commons.png"/></a><br/>This
+        work by <a xmlns:cc="http://creativecommons.org/ns#" title="thekua@work" href="http://www.thekua.com/atwork"
+                   property="cc:attributionName" rel="cc:attributionURL">Patrick Kua</a> is licensed under a <a
+                rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0
+            Unported License</a>.<br/>Permissions beyond the scope of this license may be available at <a
+                xmlns:cc="http://creativecommons.org/ns#" href="http://www.twitter.com/patkua" rel="cc:morePermissions">@patkua</a>.
+
+    <h2>Licensing</h2>
+</article>
 
 </section>
 
