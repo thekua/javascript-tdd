@@ -31,7 +31,19 @@ tdd.buildView = function() {
 
     };
 
+    x.hideLoader = function() {
+
+    };
+
+    x.showQuestionSection = function() {
+
+    };
+
     x.hideQuestionSection = function() {
+
+    };
+
+    x.showAnswerSection = function() {
 
     };
 
@@ -53,6 +65,9 @@ tdd.buildPresenter = function(questionService, view) {
         questionService.nextQuestion(function(questionAnswer) {
             var question = questionAnswer["question"];
             view.setQuestion(question);
+            view.hideLoader();
+            view.showQuestionSection();
+            view.showAnswerSection();
         });
     };
 

@@ -8,6 +8,9 @@ describe("presenter", function() {
 
         var view = tdd.buildView();
         spyOn(view, "setQuestion");
+        spyOn(view, "showQuestionSection");
+        spyOn(view, "showAnswerSection");
+        spyOn(view, "hideLoader");
 
         var presenter = tdd.buildPresenter(questionServer, view);
 
@@ -17,6 +20,9 @@ describe("presenter", function() {
         // then
         expect(questionServer.nextQuestion).toHaveBeenCalled();
         expect(view.setQuestion).toHaveBeenCalledWith("Capital of England?");
+        expect(view.showQuestionSection).toHaveBeenCalled();
+        expect(view.showAnswerSection).toHaveBeenCalled();
+        expect(view.hideLoader).toHaveBeenCalled();
     });
 
     it("should show a loader before calling next question, hiding any question and answers", function() {
