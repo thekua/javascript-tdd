@@ -96,23 +96,7 @@ slides below. -->
 
 
 
-<article>
-    <h3>
-        This slide has some code
-    </h3>
-    <section>
-        <pre>
-&lt;script type='text/javascript'&gt;
-  // Example
-  var module = {};
-  module.factory = function() {
-    return {};
-  }
 
-&lt;/script&gt;
-</pre>
-    </section>
-</article>
 
 
 
@@ -154,15 +138,74 @@ slides below. -->
               Reference: <a href="http://martinfowler.com/eaaDev/PassiveScreen.html" title="Passive View">http://martinfowler.com/eaaDev/PassiveScreen.html</a>
             </div>
 </article>
+<article class="smaller">
 
+    <h3>
+        Passive View Example
+    </h3>
+    <section>
+        <pre>
+&lt;script type='text/javascript'&gt;
+  var module = {};
+  module.buildView = function() {
+    var x = {};
+
+    // ... other methods
+
+    x.setAnswer = function(answer) {
+      $("#answer").val(answer);
+    };
+
+    x.getAnswer = function() {
+      return $("#answer").val();
+    };
+
+    x.showAnswer = function() {
+      $("#answer").show();
+    };
+
+    x.hideAnswer = function() {
+      $("#answer").hide();
+    };
+    return x;
+  }
+&lt;/script&gt;
+</pre>
+    </section>
+</article>
     <article>
-        <h3>Dealing with AJAX</h3>
+        <h3>Dealing with AJAX - Service boundary</h3>
         <p>
           <img class="centered" src='images/ajax-calls.png'>
         </p>
     </article>
 
+<article>
 
+    <h3>
+        Service boundary example
+    </h3>
+    <section>
+        <pre>
+&lt;script type='text/javascript'&gt;
+  var module = {};
+  module.serverBoundary = function() {
+    var x = {};
+
+    // ... other methods
+
+    x.fetchQuestion = function(dataHandler) {
+      $.get("/remoteCall").onSuccess(function(data) {
+        dataHandler(data);
+      });
+    };
+
+    return x;
+  }
+&lt;/script&gt;
+</pre>
+    </section>
+</article>
 <article class="story">
     <h3>Story A: The question is...</h3>
     <p><strong>In order to</strong> test my knowledge and (eventually score points)
@@ -204,6 +247,9 @@ Response: 200 OK
 
         <p class="smaller"><strong>Notes: </strong>A new button should be added. On click of the button, it should reveal the answer, hide the answer input box and show the button to progress to the next question</p>
     </article>
+
+
+
 <article class='nobackground'>
         <h3>
           The final result
