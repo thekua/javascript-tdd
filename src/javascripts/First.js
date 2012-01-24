@@ -12,8 +12,10 @@ tdd.buildModel = function() {
 
 tdd.questionService = function() {
     var x = {};
-    x.nextQuestion = function() {
-
+    x.nextQuestion = function(onSuccess) {
+        $.get('ajax/question', function(data) {
+            onSuccess(data);
+        });
     };
     return x;
 };
@@ -29,8 +31,10 @@ tdd.buildView = function() {
 tdd.buildPresenter = function(questionService, view) {
     var x = {};
     x.displayQuestion = function() {
-        var questionAnswer = questionService.nextQuestion();
-        view.setQuestion(questionAnswer["question"]);
+        questionService.nextQuestion(function(questionAnswer) {
+            var question = questionAnswer["question"];
+            view.setQuestion(question);
+        });
     };
     return x;
 };
