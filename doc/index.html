@@ -30,6 +30,11 @@
         text-align: center;
     }
 
+    .no-top-bottom-margin {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
 </style>
 
 <body style='display: none'>
@@ -287,7 +292,19 @@ Response: 200 OK
         <p class="smaller"><strong>Notes: </strong>A new button should be added. On click of the button, it should reveal the answer, hide the answer input box and show the button to progress to the next question</p>
     </article>
 
+    <article class="story">
+        <h3>Story E: Easy answering!</h3>
+        <p><strong>In order to</strong> make entering answers easier
+            <br/><strong>As a</strong> Quizlet player
+            <br/><strong>I want</strong> white spaces and case to be ignored</p>
 
+        <p class="smaller"><strong>Examples if the answer was 'London'. It should match</strong></p>
+        <ul class="smaller no-top-bottom-margin">
+            <li class="no-top-bottom-margin">' London '</li>
+            <li class="no-top-bottom-margin">'london'</li>
+            <li class="no-top-bottom-margin">' london '</li>
+        </ul>
+    </article>
 
 <article class='nobackground'>
         <h3>
