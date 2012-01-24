@@ -139,13 +139,7 @@ tdd.buildPresenter = function(questionService, view) {
         view.hideUserInput();
     };
 
-    return x;
-};
-
-tdd.inputPresenter = function(view) {
-    var x = {};
-
-    x.monitor = function() {
+    x.monitorUserInput = function() {
         var userInput = view.getUserInput();
         var answer = view.getAnswer();
         if (userInput == answer) {
@@ -165,8 +159,7 @@ tdd.main = function() {
     var presenter = tdd.buildPresenter(questionService, view);
     presenter.displayQuestion();
 
-    var inputPresenter = tdd.inputPresenter(view);
-    view.bindToAnswerInput(inputPresenter.monitor);
+    view.bindToAnswerInput(presenter.monitorUserInput);
     view.bindToNext(presenter.displayQuestion);
     view.bindToGiveUp(presenter.revealAnswer);
 }();

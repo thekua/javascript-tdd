@@ -86,11 +86,11 @@ describe("revealAnswer", function() {
     });
 });
 
-describe("monitorInput", function() {
+describe("monitorUserInput", function() {
     it("should not display the correct answer if the answers do not match", function() {
         // given
         var view = tdd.buildView();
-        var inputPresenter = tdd.inputPresenter(view);
+        var presenter = tdd.buildPresenter({}, view);
         spyOn(view, "getAnswer").andReturn("correctAnswer");
         spyOn(view, "getUserInput").andReturn("differentAnswer");
         spyOn(view, "showCorrect");
@@ -98,7 +98,7 @@ describe("monitorInput", function() {
         spyOn(view, "showNextQuestion");
 
         // when
-        inputPresenter.monitor();
+        presenter.monitorUserInput();
 
         // then
         expect(view.showCorrect).not.toHaveBeenCalled();
@@ -110,7 +110,7 @@ describe("monitorInput", function() {
     it ("should display correct answer, allowing progress on successful answer", function() {
         // given
         var view = tdd.buildView();
-        var inputPresenter = tdd.inputPresenter(view);
+        var presenter = tdd.buildPresenter({}, view);
         spyOn(view, "getAnswer").andReturn("correctAnswer");
         spyOn(view, "getUserInput").andReturn("correctAnswer");
         spyOn(view, "showCorrect");
@@ -118,7 +118,7 @@ describe("monitorInput", function() {
         spyOn(view, "showNextQuestion");
 
         // when
-        inputPresenter.monitor();
+        presenter.monitorUserInput();
 
         // then
         expect(view.showCorrect).toHaveBeenCalled();
