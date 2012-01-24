@@ -8,7 +8,7 @@ Look further into the following folders for more information:
 	|-spec/ ....... Where you'll put the tests
 
 
-<img src=".doc/images/creative-commons.png"
+<img src="./doc/images/creative-commons.png"
  alt="Licenced under the creative commons" title="Creative Commons Licence" />
 
 This work by [Patrick Kua](http://www.thekua.com/atwork) is licensed under a [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
