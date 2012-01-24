@@ -13,7 +13,7 @@ tdd.buildModel = function() {
 tdd.questionService = function() {
     var x = {};
     x.nextQuestion = function(onSuccess) {
-        onSuccess({"question" : "What is the default question?", "answer" : "42"});
+        onSuccess({"question" : "What is the default question?", "answer" : "myanswer"});
 //        $.get('ajax/question', function(data) {
 //            onSuccess(data);
 //        });
@@ -54,6 +54,26 @@ tdd.buildView = function() {
         $("#next-question").hide();
     };
 
+    x.showCorrect = function() {
+        $("#ok").show();
+    };
+
+    x.setHiddenAnswer = function(answer) {
+        $("#hidden-answer").val(answer);
+    };
+
+    x.bindToAnswerInput = function(listener) {
+        $("#user-answer").keyup(listener);
+    };
+
+    x.getHiddenAnswer = function() {
+        return $("#hidden-answer").val();
+    };
+
+    x.getUserInput = function() {
+        return $("#user-answer").val();
+    };
+
     return x;
 };
 
@@ -67,10 +87,27 @@ tdd.buildPresenter = function(questionService, view) {
 
         questionService.nextQuestion(function(questionAnswer) {
             var question = questionAnswer["question"];
+            var answer = questionAnswer["answer"];
             view.setQuestion(question);
             view.hideLoader();
             view.showQuestionSection();
+            view.setHiddenAnswer(answer);
         });
+    };
+
+    return x;
+};
+
+tdd.inputPresenter = function(view) {
+    var x = {};
+
+    x.monitor = function() {
+
+        var userInput = view.getUserInput();
+        var answer = view.getHiddenAnswer();
+        if (userInput == answer) {
+            view.showCorrect();
+        }
     };
 
     return x;
@@ -82,4 +119,7 @@ tdd.main = function() {
     var questionService = tdd.questionService();
     var presenter = tdd.buildPresenter(questionService, view);
     presenter.displayQuestion();
+
+    var inputPresenter = tdd.inputPresenter(view);
+    view.bindToAnswerInput(inputPresenter.monitor);
 }();

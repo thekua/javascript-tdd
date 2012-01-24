@@ -11,6 +11,7 @@ describe("presenter", function() {
         spyOn(view, "hideQuestionSection");
         spyOn(view, "hideAnswerSection");
         spyOn(view, "setQuestion");
+        spyOn(view, "setHiddenAnswer");
         spyOn(view, "showQuestionSection");
         spyOn(view, "showAnswerSection");
         spyOn(view, "hideLoader");
@@ -23,6 +24,7 @@ describe("presenter", function() {
         // then
         expect(questionServer.nextQuestion).toHaveBeenCalled();
         expect(view.setQuestion).toHaveBeenCalledWith("Capital of England?");
+        expect(view.setHiddenAnswer).toHaveBeenCalledWith("London");
         expect(view.showQuestionSection).toHaveBeenCalled();
         expect(view.showAnswerSection).not.toHaveBeenCalled();
         expect(view.hideLoader).toHaveBeenCalled();
@@ -37,8 +39,8 @@ describe("presenter", function() {
         spyOn(view, "showLoader");
         spyOn(view, "hideQuestionSection");
         spyOn(view, "hideAnswerSection");
-        spyOn(view, "showAnswerSection")
-        spyOn(view, "showQuestionSection")
+        spyOn(view, "showAnswerSection");
+        spyOn(view, "showQuestionSection");
 
         var presenter = tdd.buildPresenter(questionServer, view);
 
@@ -54,5 +56,39 @@ describe("presenter", function() {
         expect(view.showAnswerSection).not.toHaveBeenCalled();
         expect(view.showQuestionSection).not.toHaveBeenCalled();
     });
-
 });
+
+describe("monitorInput", function() {
+    it("should not display the correct answer if the answers do not match", function() {
+        // given
+        var view = tdd.buildView();
+        var inputPresenter = tdd.inputPresenter(view);
+        spyOn(view, "getHiddenAnswer").andReturn("correctAnswer");
+        spyOn(view, "getUserInput").andReturn("differentAnswer");
+        spyOn(view, "showCorrect");
+
+        // when
+        inputPresenter.monitor();
+
+        // then
+        expect(view.showCorrect).not.toHaveBeenCalled();
+    });
+
+
+    it ("should display correct answer, allowing progress on successful answer", function() {
+        // given
+        var view = tdd.buildView();
+        var inputPresenter = tdd.inputPresenter(view);
+        spyOn(view, "getHiddenAnswer").andReturn("correctAnswer");
+        spyOn(view, "getUserInput").andReturn("correctAnswer");
+        spyOn(view, "showCorrect");
+
+        // when
+        inputPresenter.monitor();
+
+        // then
+        expect(view.showCorrect).toHaveBeenCalled();
+
+    });
+});
+
