@@ -58,6 +58,8 @@ tdd.buildView = function() {
         $("#give-up").hide();
     };
 
+
+
     x.showGiveUp = function() {
         $("#give-up").show();
     };
@@ -82,12 +84,24 @@ tdd.buildView = function() {
         $("#next-question").click(handler);
     };
 
+    x.bindToGiveUp = function(handler) {
+        $("#give-up").click(handler);
+    };
+
     x.getAnswer = function() {
         return $("#answer").html();
     };
 
     x.getUserInput = function() {
         return $("#user-answer").val();
+    };
+
+    x.showUserInput = function() {
+        $("#user-answer").show();
+    };
+
+    x.hideUserInput = function() {
+        $("#user-answer").hide();
     };
 
     x.clearUserInput = function() {
@@ -111,10 +125,18 @@ tdd.buildPresenter = function(questionService, view) {
             view.setQuestion(question);
             view.hideLoader();
             view.showGiveUp();
+            view.showUserInput();
             view.showQuestionSection();
             view.setAnswer(answer);
             view.clearUserInput();
         });
+    };
+
+    x.revealAnswer = function() {
+        view.showAnswerSection();
+        view.hideGiveUp();
+        view.showNextQuestion();
+        view.hideUserInput();
     };
 
     return x;
@@ -146,4 +168,5 @@ tdd.main = function() {
     var inputPresenter = tdd.inputPresenter(view);
     view.bindToAnswerInput(inputPresenter.monitor);
     view.bindToNext(presenter.displayQuestion);
+    view.bindToGiveUp(presenter.revealAnswer);
 }();

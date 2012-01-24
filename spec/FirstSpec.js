@@ -14,6 +14,7 @@ describe("presenter", function() {
         spyOn(view, "setQuestion");
         spyOn(view, "setAnswer");
         spyOn(view, "showGiveUp");
+        spyOn(view, "showUserInput");
         spyOn(view, "showQuestionSection");
         spyOn(view, "showAnswerSection");
         spyOn(view, "hideLoader");
@@ -31,6 +32,7 @@ describe("presenter", function() {
         expect(view.showAnswerSection).not.toHaveBeenCalled();
         expect(view.hideLoader).toHaveBeenCalled();
         expect(view.showGiveUp).toHaveBeenCalled();
+        expect(view.showUserInput).toHaveBeenCalled();
         expect(view.clearUserInput).toHaveBeenCalled();
     });
 
@@ -59,6 +61,28 @@ describe("presenter", function() {
 
         expect(view.showAnswerSection).not.toHaveBeenCalled();
         expect(view.showQuestionSection).not.toHaveBeenCalled();
+    });
+});
+
+describe("revealAnswer", function() {
+    it("should reveal the answer and hide the give up button", function() {
+        // given
+        var view = tdd.buildView();
+        var presenter = tdd.buildPresenter({}, view);
+        spyOn(view, "hideGiveUp");
+        spyOn(view, "showAnswerSection");
+        spyOn(view, "showNextQuestion");
+        spyOn(view, "hideUserInput");
+
+        // when
+        presenter.revealAnswer();
+
+        // then
+        expect(view.hideGiveUp).toHaveBeenCalled();
+        expect(view.showAnswerSection).toHaveBeenCalled();
+        expect(view.showNextQuestion).toHaveBeenCalled();
+        expect(view.hideUserInput).toHaveBeenCalled();
+
     });
 });
 
