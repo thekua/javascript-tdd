@@ -50,6 +50,8 @@ tdd.buildView = function() {
 
     x.hideAnswerSection = function() {
         $("#answer-section").hide();
+        $("#ok").hide();
+        $("#next-question").hide();
     };
 
     return x;
@@ -69,7 +71,6 @@ tdd.buildPresenter = function(questionService, view) {
             view.hideLoader();
             view.showQuestionSection();
         });
-
     };
 
     return x;
