@@ -7,6 +7,9 @@ describe("presenter", function() {
         });
 
         var view = tdd.buildView();
+        spyOn(view, "showLoader");
+        spyOn(view, "hideQuestionSection");
+        spyOn(view, "hideAnswerSection");
         spyOn(view, "setQuestion");
         spyOn(view, "showQuestionSection");
         spyOn(view, "showAnswerSection");
@@ -21,7 +24,7 @@ describe("presenter", function() {
         expect(questionServer.nextQuestion).toHaveBeenCalled();
         expect(view.setQuestion).toHaveBeenCalledWith("Capital of England?");
         expect(view.showQuestionSection).toHaveBeenCalled();
-        expect(view.showAnswerSection).toHaveBeenCalled();
+        expect(view.showAnswerSection).not.toHaveBeenCalled();
         expect(view.hideLoader).toHaveBeenCalled();
     });
 
