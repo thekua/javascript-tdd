@@ -12,8 +12,25 @@ tdd.buildModel = function() {
 
 tdd.questionService = function() {
     var x = {};
+
+    var preBuiltQuestions = [
+        {"question" : "What is the capital of Germany?", "answer" : "Berlin"},
+        {"question" : "What is the capital of England?", "answer" : "London"},
+        {"question" : "Europe's most popular sport?", "answer" : "Football"},
+        {"question" : "What is the primary colour of the Brazilian flag?", "answer" : "Green"},
+        {"question" : "Name the chemical element identified by the symbol 'Ag'", "answer" : "Silver"},
+        {"question" : "Complete the sentence: Alice in ...", "answer" : "Wonderland"},
+        {"question" : "Capital of Japan?", "answer" :"Tokyo"}
+    ];
+
+    var next = function() {
+        var randomNumber = Math.random() * preBuiltQuestions.length;
+        var randomIndex = Math.floor(randomNumber);
+        return preBuiltQuestions[randomIndex];
+    };
+
     x.nextQuestion = function(onSuccess) {
-        onSuccess({"question" : "What is the default question?", "answer" : "myanswer"});
+        onSuccess(next());
 //        $.get('ajax/question', function(data) {
 //            onSuccess(data);
 //        });
