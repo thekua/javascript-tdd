@@ -66,9 +66,10 @@ tdd.buildPresenter = function(questionService, view) {
             var question = questionAnswer["question"];
             view.setQuestion(question);
             view.hideLoader();
-            view.showQuestionSection();
             view.showAnswerSection();
+            view.showQuestionSection();
         });
+
     };
 
     return x;
