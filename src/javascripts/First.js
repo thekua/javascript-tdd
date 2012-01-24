@@ -78,12 +78,20 @@ tdd.buildView = function() {
         $("#user-answer").keyup(listener);
     };
 
+    x.bindToNext = function(handler) {
+        $("#next-question").click(handler);
+    };
+
     x.getAnswer = function() {
         return $("#answer").html();
     };
 
     x.getUserInput = function() {
         return $("#user-answer").val();
+    };
+
+    x.clearUserInput = function() {
+        $("#user-answer").val("");
     };
 
     return x;
@@ -105,6 +113,7 @@ tdd.buildPresenter = function(questionService, view) {
             view.showGiveUp();
             view.showQuestionSection();
             view.setAnswer(answer);
+            view.clearUserInput();
         });
     };
 
@@ -136,4 +145,5 @@ tdd.main = function() {
 
     var inputPresenter = tdd.inputPresenter(view);
     view.bindToAnswerInput(inputPresenter.monitor);
+    view.bindToNext(presenter.displayQuestion);
 }();
