@@ -31,11 +31,11 @@ tdd.buildView = function() {
 
     };
 
-    x.hideQuestion = function() {
+    x.hideQuestionSection = function() {
 
     };
 
-    x.hideAnswer = function() {
+    x.hideAnswerSection = function() {
 
     };
 
@@ -47,8 +47,8 @@ tdd.buildPresenter = function(questionService, view) {
 
     x.displayQuestion = function() {
         view.showLoader();
-        view.hideQuestion();
-        view.hideAnswer();
+        view.hideQuestionSection();
+        view.hideAnswerSection();
 
         questionService.nextQuestion(function(questionAnswer) {
             var question = questionAnswer["question"];
