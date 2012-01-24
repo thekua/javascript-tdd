@@ -206,6 +206,34 @@ slides below. -->
 </pre>
     </section>
 </article>
+
+<article>
+    <h3>Javascript Dependency Injection</h3>
+    <p>Separates what you use from where you get it</p>
+    <img class="centered" src="images/dependency-injection-150.png"/>
+</article>
+
+<article>
+    <h3>Dependency Injection Example</h3>
+    <pre>&lt;script type='text/javascript'&gt;
+var module = {};
+
+// note that presenter doesn't care if it uses
+// real dependencies or test-doubles
+module.buildPresenter = function(view, remoteService) {
+  var x = {};
+
+  x.aPresenterMethod = function() {
+    // I can use my dependencies here
+  };
+
+  return x;
+};
+
+&lt;/script&gt;
+    </pre>
+</article>
+
 <article class="story">
     <h3>Story A: The question is...</h3>
     <p><strong>In order to</strong> test my knowledge and (eventually score points)
@@ -265,9 +293,11 @@ Response: 200 OK
 </article>
 
     <article>
-        <p>Build with:</p>
+        <p>This package built with:</p>
         <ul>
             <li><a href="http://pivotal.github.com/jasmine/" title="Jasmine BDD">Jasmine BDD</a>- <a href="../lib/jasmine-1.1.0/doc/index.html" title="Jasmine BDD Documentation">Documentation here</a></li>
+            <li>Slides built with <a href="code.google.com/p/html5slides" title="HTML 5 slides">HTML5Slides</a></li>
+            <li>Dynamic presentation brought to you by <a href="http://jquery.com/" title="JQuery">JQuery</a></li>
         </ul>
     </article>
 
