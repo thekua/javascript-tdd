@@ -54,20 +54,32 @@ tdd.buildView = function() {
         $("#next-question").hide();
     };
 
+    x.hideGiveUp = function() {
+        $("#give-up").hide();
+    };
+
+    x.showGiveUp = function() {
+        $("#give-up").show();
+    };
+
+    x.showNextQuestion = function() {
+        $("#next-question").show();
+    };
+
     x.showCorrect = function() {
         $("#ok").show();
     };
 
-    x.setHiddenAnswer = function(answer) {
-        $("#hidden-answer").val(answer);
+    x.setAnswer = function(answer) {
+        $("#answer").html(answer);
     };
 
     x.bindToAnswerInput = function(listener) {
         $("#user-answer").keyup(listener);
     };
 
-    x.getHiddenAnswer = function() {
-        return $("#hidden-answer").val();
+    x.getAnswer = function() {
+        return $("#answer").html();
     };
 
     x.getUserInput = function() {
@@ -90,8 +102,9 @@ tdd.buildPresenter = function(questionService, view) {
             var answer = questionAnswer["answer"];
             view.setQuestion(question);
             view.hideLoader();
+            view.showGiveUp();
             view.showQuestionSection();
-            view.setHiddenAnswer(answer);
+            view.setAnswer(answer);
         });
     };
 
@@ -102,11 +115,12 @@ tdd.inputPresenter = function(view) {
     var x = {};
 
     x.monitor = function() {
-
         var userInput = view.getUserInput();
-        var answer = view.getHiddenAnswer();
+        var answer = view.getAnswer();
         if (userInput == answer) {
             view.showCorrect();
+            view.hideGiveUp();
+            view.showNextQuestion();
         }
     };
 

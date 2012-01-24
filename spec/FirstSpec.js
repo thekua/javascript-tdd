@@ -11,7 +11,8 @@ describe("presenter", function() {
         spyOn(view, "hideQuestionSection");
         spyOn(view, "hideAnswerSection");
         spyOn(view, "setQuestion");
-        spyOn(view, "setHiddenAnswer");
+        spyOn(view, "setAnswer");
+        spyOn(view, "showGiveUp");
         spyOn(view, "showQuestionSection");
         spyOn(view, "showAnswerSection");
         spyOn(view, "hideLoader");
@@ -24,10 +25,12 @@ describe("presenter", function() {
         // then
         expect(questionServer.nextQuestion).toHaveBeenCalled();
         expect(view.setQuestion).toHaveBeenCalledWith("Capital of England?");
-        expect(view.setHiddenAnswer).toHaveBeenCalledWith("London");
+        expect(view.setAnswer).toHaveBeenCalledWith("London");
         expect(view.showQuestionSection).toHaveBeenCalled();
         expect(view.showAnswerSection).not.toHaveBeenCalled();
         expect(view.hideLoader).toHaveBeenCalled();
+        expect(view.showGiveUp).toHaveBeenCalled();
+
     });
 
     it("should show a loader before calling next question, hiding any question and answers", function() {
@@ -63,15 +66,19 @@ describe("monitorInput", function() {
         // given
         var view = tdd.buildView();
         var inputPresenter = tdd.inputPresenter(view);
-        spyOn(view, "getHiddenAnswer").andReturn("correctAnswer");
+        spyOn(view, "getAnswer").andReturn("correctAnswer");
         spyOn(view, "getUserInput").andReturn("differentAnswer");
         spyOn(view, "showCorrect");
+        spyOn(view, "hideGiveUp");
+        spyOn(view, "showNextQuestion");
 
         // when
         inputPresenter.monitor();
 
         // then
         expect(view.showCorrect).not.toHaveBeenCalled();
+        expect(view.hideGiveUp).not.toHaveBeenCalled();
+        expect(view.showNextQuestion).not.toHaveBeenCalled();
     });
 
 
@@ -79,15 +86,19 @@ describe("monitorInput", function() {
         // given
         var view = tdd.buildView();
         var inputPresenter = tdd.inputPresenter(view);
-        spyOn(view, "getHiddenAnswer").andReturn("correctAnswer");
+        spyOn(view, "getAnswer").andReturn("correctAnswer");
         spyOn(view, "getUserInput").andReturn("correctAnswer");
         spyOn(view, "showCorrect");
+        spyOn(view, "hideGiveUp");
+        spyOn(view, "showNextQuestion");
 
         // when
         inputPresenter.monitor();
 
         // then
         expect(view.showCorrect).toHaveBeenCalled();
+        expect(view.hideGiveUp).toHaveBeenCalled();
+        expect(view.showNextQuestion).toHaveBeenCalled();
 
     });
 });
