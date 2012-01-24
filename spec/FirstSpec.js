@@ -1,6 +1,4 @@
 describe("presenter", function() {
-;
-
     it("should successfully update the view on return from the server", function() {
         // given
         var questionServer = tdd.questionService();
@@ -20,4 +18,27 @@ describe("presenter", function() {
         expect(questionServer.nextQuestion).toHaveBeenCalled();
         expect(view.setQuestion).toHaveBeenCalledWith("Capital of England?");
     });
+
+    it("should show a loader before calling next question, hiding any question and answers", function() {
+        // given
+        var questionServer = tdd.questionService();
+        spyOn(questionServer, "nextQuestion");
+
+        var view = tdd.buildView();
+        spyOn(view, "showLoader");
+        spyOn(view, "hideQuestion");
+        spyOn(view, "hideAnswer");
+
+        var presenter = tdd.buildPresenter(questionServer, view);
+
+        // when
+        presenter.displayQuestion();
+
+        // expect
+        expect(questionServer.nextQuestion).toHaveBeenCalled();
+        expect(view.showLoader).toHaveBeenCalled();
+        expect(view.hideQuestion).toHaveBeenCalled();
+        expect(view.hideAnswer).toHaveBeenCalled();
+    });
+
 });
