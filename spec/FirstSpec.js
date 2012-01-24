@@ -1,12 +1,19 @@
 describe("test", function() {
-    it("should be successful", function(){
-       // given
-       var model = tdd.buildModel();
+    it("should be successful", function() {
+        // given
+        var questionServer = tdd.questionService();
+        spyOn(questionServer, "nextQuestion").andReturn({"question":"Capital of England?", "answer": "London"});
 
-       // when 
-       var result = model.something();
+        var view = tdd.buildView();
+        spyOn(view, "setQuestion");
 
-       // then
-       expect(result).toBe(true);
+        var presenter = tdd.buildPresenter(questionServer, view);
+
+        // when
+        presenter.displayQuestion();
+
+        // then
+        expect(questionServer.nextQuestion).toHaveBeenCalled();
+        expect(view.setQuestion).toHaveBeenCalledWith("Capital of England?");
     });
 });
