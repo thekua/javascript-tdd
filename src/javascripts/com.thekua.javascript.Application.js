@@ -1,11 +1,15 @@
-var tdd = {};
+(function () {
+    "use strict";
 
-tdd.buildModel = function() {
-  var x = {};
+    var tdd = {};
 
-  x.something = function() {
-     return true;
-  };  
+    tdd.buildModel = function () {
+        var x = {};
 
-  return x;
-};
+        x.something = function () {
+            return true;
+        };
+
+        return x;
+    };
+}());
