@@ -1,12 +1,14 @@
-describe("test", function() {
-    it("should be successful", function(){
-       // given
-       var model = tdd.buildModel();
+describe("test", function () {
+    it("should be successful", function () {
+        // given
+        var view = tdd.buildView();
+        spyOn(view, "setJavascriptExecutingIndicator");
+        var presenter = tdd.buildPresenter(view);
 
-       // when 
-       var result = model.something();
+        // when
+        presenter.showJavascriptWorking();
 
-       // then
-       expect(result).toBe(true);
+        // then
+        expect(view.setJavascriptExecutingIndicator).toHaveBeenCalledWith("Hey, it looks like JS is working!!!");
     });
 });
