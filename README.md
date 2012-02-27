@@ -4,9 +4,10 @@ Look further into the following folders for more information:
 ---
 
 	|-doc/ ........ HTML5 slides that go alongside
+        |-lib/ ........ Where jasmine sits (alongside documentation)
 	|-src/ ........ Where you put production source
 	|-spec/ ....... Where you'll put the tests
-
+       
 
 <img src="https://github.com/thekua/javascript-tdd/raw/master/doc/images/creative-commons.png"
  alt="Licenced under the creative commons" title="Creative Commons Licence" />
