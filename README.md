@@ -3,9 +3,9 @@ A project to allow people to practice TDDing javascript
 Look further into the following folders for more information:
 ---
 
-        |-backends/ ... Implementations of a "test" question server in various languages
+	|-backends/ ... Implementations of a "test" question server in various languages
 	|-doc/ ........ HTML5 slides that go alongside
-        |-lib/ ........ Where jasmine sits (alongside documentation)
+	|-lib/ ........ Where jasmine sits (alongside documentation)
 	|-src/ ........ Where you put production source
 	|-spec/ ....... Where you'll put the tests
        
