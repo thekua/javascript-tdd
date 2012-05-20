@@ -9,6 +9,6 @@ describe("test", function () {
         presenter.showJavascriptWorking();
 
         // then
-        expect(view.setJavascriptExecutingIndicator).toHaveBeenCalledWith("Hey, it looks like JS is working!!!");
+        expect(view.setJavascriptExecutingIndicator).toHaveBeenCalledWith("Hey, it looks like JS is workin!!!");
     });
 });
