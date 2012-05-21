@@ -18,6 +18,7 @@ public class App implements Container {
         try {
             PrintStream body = response.getPrintStream();
             response.set("Content-Type", "application/json");
+            response.set("Access-Control-Allow-Origin", "*");
             body.println(json());
             body.close();
         } catch (Exception e) {
