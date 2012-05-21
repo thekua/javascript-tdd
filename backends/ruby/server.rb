@@ -2,7 +2,7 @@ require 'webrick'
 
 server = WEBrick::HTTPServer.new(
   :BindAddress     =>    "localhost",
-  :Port            =>    8080,
+  :Port            =>    8080
 )
 
 class QuestionServlet < WEBrick::HTTPServlet::AbstractServlet
