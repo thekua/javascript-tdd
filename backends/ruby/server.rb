@@ -12,7 +12,8 @@ class QuestionServlet < WEBrick::HTTPServlet::AbstractServlet
 
   def do_GET(request, response)
      response.status = 200
-     response['Content-Type'] = "text/plain"
+     response['Content-Type'] = "application/json; charset=UTF-8"
+     response['Access-Control-Allow-Origin'] = '*'
      json = to_json(random_question_pair)
      response.body = json
   end
